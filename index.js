@@ -6,6 +6,8 @@ form.addEventListener('submit', event => {
     const formData = new FormData(event.target);
     const name = formData.get('name');
     const job = formData.get('job');
+
+    // CRIA USUÁRIO
     fetch('https://reqres.in/api/users', {
         method: 'post',
         body: {
@@ -29,6 +31,8 @@ form.addEventListener('submit', event => {
     }).catch(error => {
         console.log('Houve um erro')
     });
+
+    //BUSCA LISTAGEM DE USUÁRIOS
     fetch('https://reqres.in/api/users').then(response => {
         response.json().then(data => {
             const users = data.data;
